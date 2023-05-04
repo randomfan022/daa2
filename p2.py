@@ -1,41 +1,68 @@
-import random
-def display(room):
-  print(room)
+tools:visibility="visible">
+ <Button
+ android:id="@+id/button"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Long Click on Me"
+ android:textSize="25sp"
+ android:visibility="visible"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintLeft_toLeftOf="parent"
+ app:layout_constraintRight_toRightOf="parent"
+ app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-room = [
-[1, 1, 1, 1],
-[1, 1, 1, 1],
-[1, 1, 1, 1],
-[1, 1, 1, 1],
-]
-print("All the rooom are dirty")
-display(room)
-x =0
-y= 0
 
-while x < 4:
-  while y < 4:
-    room[x][y] = random.choice([0,1])
-    y+=1
-  x+=1
-  y=0
-print("Before cleaning the room I detect all of these random dirts")
-display(room)
-x =0
-y= 0
-z=0
 
-while x < 4:
-   while y < 4:
-     if room[x][y] == 1: 
-       print("Vaccum in this location now,",x, y)
-       room[x][y] = 0
-       print("cleaned", x, y)
-       z+=1
-     y+=1
-   x+=1
-   y=0
-pro= (100-((z/16)*100))
-print("Room is clean now, Thanks for using : 3710933")
-display(room)
-print('performance=',pro,'%')
+package com.example.secondprog;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ private Button button;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ button = findViewById(R.id.button);
+ registerForContextMenu(button);
+ }
+ @Override
+ public void onCreateContextMenu(ContextMenu menu, View v, 
+ContextMenu.ContextMenuInfo menuInfo) {
+ getMenuInflater().inflate(R.menu.menu,menu);
+ super.onCreateContextMenu(menu, v, menuInfo);
+ }
+ @Override
+ public boolean onContextItemSelected(@NonNull MenuItem item) {
+ Toast.makeText(this, ""+item.getTitle(), Toast.LENGTH_SHORT).show();
+ return super.onContextItemSelected(item);
+ }
+}
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item
+ android:title="@string/one"
+ />
+ <item
+ android:title="@string/two"
+ />
+ <item
+ android:title="@string/three"
+ />
+ <item
+ android:title="@string/four"
+ />
+ <item
+ android:title="@string/five"
+ />
+</menu>
