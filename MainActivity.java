@@ -1,19 +1,3 @@
-tools:visibility="visible">
- <Button
- android:id="@+id/button"
- android:layout_width="wrap_content"
- android:layout_height="wrap_content"
- android:text="Long Click on Me"
- android:textSize="25sp"
- android:visibility="visible"
- app:layout_constraintBottom_toBottomOf="parent"
- app:layout_constraintLeft_toLeftOf="parent"
- app:layout_constraintRight_toRightOf="parent"
- app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 package com.example.secondprog;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,25 +28,3 @@ ContextMenu.ContextMenuInfo menuInfo) {
  return super.onContextItemSelected(item);
  }
 }
-
-
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
- <item
- android:title="@string/one"
- />
- <item
- android:title="@string/two"
- />
- <item
- android:title="@string/three"
- />
- <item
- android:title="@string/four"
- />
- <item
- android:title="@string/five"
- />
-</menu>
